@@ -12,8 +12,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- CSS -->
     <link rel="stylesheet" href="styles.css">
-    <!-- SheetJS Library for parsing Excel -->
+    <!-- SheetJS Library for parsing Excel with CDN fallback -->
     <script src="lib/xlsx.full.min.js"></script>
+    <script>
+        if (typeof XLSX === 'undefined') {
+            const script = document.createElement('script');
+            script.src = "https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js";
+            document.head.appendChild(script);
+        }
+    </script>
 </head>
 <body>
     <div class="app-container">
